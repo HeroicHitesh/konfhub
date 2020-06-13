@@ -5,14 +5,18 @@ const Tile = props =>{
     return(
         <div className="card text-center shadow">
             <div className="overflow">
-                <img src={props.imgsrc} alt="image 1" className="card-img-top" />
+                <img src={props.imgsrc} alt="conference image" className="card-img-top" />
             </div>
             <div className="card-body text-dark">
                 <h4 className="card-title">{props.title}</h4>
+                <h6>{props.venue}</h6>
                 <p className="card-text text-secondary">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum dicta laudantium eum aliquid illum quaerat necessitatibus aspernatur quia, ipsam magni.
+                    <b>From :</b> {props.start}<br></br>
+                    <b>To :</b> {props.end}<br></br>
                 </p>
-                <a href="#" className="btn btn-outline-success">Go Anywhere</a>
+                <a href={props.site} className="btn btn-outline-primary">Details</a>
+                <a href={props.link} className="btn btn-outline-success">Register Now</a>
+                <a href="#" className="btn btn-outline-secondary">{props.price}</a>
             </div>
         </div>
     );

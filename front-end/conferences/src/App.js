@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
-
+import Tile from './Tiles/TileUI';
+import Search from './Search/Search';
 class App extends Component {
     state = {
         loading: true,
-        conferences: []
+        paidConfs: [],
+        freeConfs: []
     };
 
     async componentDidMount(){
         const url = "https://o136z8hk40.execute-api.us-east-1.amazonaws.com/dev/get-list-of-conferences";
         const response = await fetch(url);
         const data = await response.json();
-        this.setState({conferences: data.paid, loading:false});
+        this.setState({paidConfs: data.paid, freeConfs: data.free, loading:false});
     }
 
     render() {
@@ -18,24 +20,45 @@ class App extends Component {
             return <div>loading...</div>;
         }
 
-        if (!this.state.conferences.length) {
+        if (!this.state.paidConfs.length && !this.state.freeConfs.length) {
             return <div>No conference data available</div>;
         }
-
-        const conferencesJSX = this.state.conferences.map(conference => (
-            <div key={conference.conference_id}>
-                <div>{conference.confName}</div>
-                <div>{conference.venue}</div>
-                <div>From : {conference.confStartDate}</div>
-                <div>To : {conference.confEndDate}</div>
-                <div>{conference.confUrl}</div>
-                <div>Register at - {conference.confRegUrl}</div>
-                <div>{conference.entryType}</div>
-                <img src={conference.imageURL} />
+        
+        const paidConfsJSX = this.state.paidConfs.map(conference => (
+            <div key={conference.conference_id} className="container-fluid d-flex justify-content-center">
+                <div className="row">
+                    <div className="col-md-4"><Tile imgsrc={conference.imageURL} title={conference.confName} venue={conference.venue} start={conference.confStartDate} end={conference.confEndDate} site={conference.confUrl} link={conference.confRegUrl} price={conference.entryType} />
+                    </div>
+                </div>
             </div>
         ));
 
-        return <div>{conferencesJSX}</div>
+        const freeConfsJSX = this.state.freeConfs.map(conference => (
+            <div key={conference.conference_id} className="container-fluid d-flex justify-content-center">
+                <div className="row">
+                    <div className="col-md-4"><Tile imgsrc={conference.imageURL} title={conference.confName} venue={conference.venue} start={conference.confStartDate} end={conference.confEndDate} site={conference.confUrl} link={conference.confRegUrl} price={conference.entryType} />
+                    </div>
+                </div>
+            </div>
+        ));
+
+        return (
+            <div>
+                <Search />
+                <div className="container-fluid d-flex justify-content-center">
+                    <div className="row">
+                        <div className="col-md-4">
+                            {paidConfsJSX}
+                        </div>
+                        <div className="col-md-4">
+                        </div>
+                        <div className="col-md-4">
+                            {freeConfsJSX}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     }
 }
 

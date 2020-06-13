@@ -1,0 +1,43 @@
+.heading {
+    font-family: metal-mania;
+    font-size: 4rem;
+    padding: 2rem;
+	padding-top: 6rem;
+	color: #b3ffff;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+  }
+
+/*Container*/
+.container {
+	margin: 36px auto;
+	width: 100%;
+	max-width: 800px;
+}
+
+
+.search-label {
+    position: relative;
+    padding-left: 25rem;
+    padding-top: 2rem;
+}
+
+.container input {
+	width: 100%;
+	padding: 0.5rem;
+	font-size: 2rem;
+	font-style: italic;
+	color: #444;
+	box-sizing: border-box;
+	outline: none;
+    border-radius: 25%;
+}
+
+.search-icon {
+	position: absolute;
+	padding-top: 1rem;
+	font-size: 2.5rem;
+	color: #555;
+	right: 0.5rem;
+}

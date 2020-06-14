@@ -10,6 +10,7 @@ Contains react app for showcasing the list of conferences fetched from given API
 [ ] Pagination to show limited conferences on first page
 [ ] Add Filter feature
 [ ] Sort by dates
+[ ] Set default image if fetched imageURL is not working
 
 # In-progress
 

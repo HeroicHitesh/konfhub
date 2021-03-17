@@ -1,6 +1,6 @@
-# Front-end
+# Back-end
 
-Contains react app for showcasing the list of conferences fetched from given API as tiles.
+Print the contents in a human readable format and identify duplicates.
 
 ### TO-DOs
 

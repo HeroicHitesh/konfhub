@@ -1,6 +1,6 @@
-# konfhub internship tasks
+# Internship assignment for [KonfHub](https://konfhub.com)
 
-## Structure
+### Structure
 
 - frontend
     - conferences(React App)
@@ -18,6 +18,7 @@
             - App.js
             - index.js
     - README.md
+    - Tasks.md
 - backend
     - nodejs
         - app.js
@@ -27,3 +28,4 @@
         - human_readable_data.txt
         - exact_duplicate_confs.txt
     - README.md
+    - Tasks.md
